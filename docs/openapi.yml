@@ -1,0 +1,82 @@
+openapi: 3.0.2
+info:
+  title: VASS Challenge
+  description: "Api contract for VASS price challenge"
+  termsOfService: none
+  contact:
+    email: igutierrezbombin@serbatic.es
+  version: 1.0.0-SNAPSHOT
+servers:
+  - url: http://localhost:8080
+tags:
+  - name: product
+    description: Operations about products
+paths:
+  /price/{brandId}/{productId}/{date}:
+    get:
+      tags:
+        - product
+      summary: Get the price of a given product and brand in a given date
+      parameters:
+        - in: path
+          name: brandId
+          schema:
+            type: integer
+            format: int64
+          required: true
+          description: Brand Id
+        - in: path
+          name: productId
+          schema:
+            type: integer
+            format: int64
+          required: true
+          description: Product Id
+        - name: date
+          in: path
+          schema:
+            type: string
+            format: date-time
+          required: true
+          description: date used to check price
+      responses:
+        200:
+          description: Price Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductPrice'
+        400:
+          description: Error in some of the params introduced
+        404:
+          description: Product price does not exists
+        500:
+          description: Internal server error
+components:
+  schemas:
+    ProductPrice:
+      type: object
+      properties:
+        priceList:
+          type: integer
+          format: int64
+          description: Fee Id to apply
+        brandId:
+          type: integer
+          format: int64
+          description: Brand ID
+        productId:
+          type: integer
+          format: int64
+          description: Product ID
+        startDate:
+          type: string
+          format: date-time
+          description: Product price start date
+        endDate:
+          type: string
+          format: date-time
+          description: Product price end date
+        price:
+          type: string
+          description: Product price with currency
