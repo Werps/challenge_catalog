@@ -30,7 +30,11 @@ En concreto, estos paquetes son:
 - Infrastructure: que en nuestro caso es la encargada de conectarse a la base de datos
 
 La capa Application e Infrastructure se conecta a la capa Domain mediante los puertos de este. De esta manera, la capa domain 
-queda completamente aislada.
+queda completamente aislada. 
+
+Si se quisiera aislar más la capa Domain, en vez de dividir las capas en paquetes se pueden dividir las distintas capas en
+módulos Java. En los que la capa Application e Infrastructure se conecten con Domain pero no al reves, evitando que puedan
+ocurrir incumplimientos de la arquitectura durante un desarrollo.
 
 ## Tecnologías Usadas
 Para este proyecto se ha utilizado las siguientes tecnologías:
