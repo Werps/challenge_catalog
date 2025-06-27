@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDateTime;
 
 @RestController
-@RequestMapping(value = "/price")
+@RequestMapping(value = "/prices")
 @RequiredArgsConstructor
 public class ProductPriceController {
 

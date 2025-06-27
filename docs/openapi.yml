@@ -9,13 +9,13 @@ info:
 servers:
   - url: http://localhost:8080
 tags:
-  - name: product
-    description: Operations about products
+  - name: prices
+    description: Operations about prices
 paths:
-  /price/{brandId}/{productId}/{date}:
+  /prices/{brandId}/{productId}/{date}:
     get:
       tags:
-        - product
+        - prices
       summary: Get the price of a given product and brand in a given date
       parameters:
         - in: path
