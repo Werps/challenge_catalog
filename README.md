@@ -36,6 +36,11 @@ queda completamente aislada.
 Para este proyecto se ha utilizado las siguientes tecnologías:
 - Java 17
 - Spring Boot 3.5.3
-- MapStruct
 - Lombok
-- Hibernate
+- MapStruct para crear los mapper
+- Como ORM Hibernate
+- Como base de datos H2
+
+## Arranque del proyecto
+Se debe compilar el proyecto en Java 17 y después lanzar como cualquier proyecto spring boot en tu IDE preferido o 
+directamente con un comando maven
