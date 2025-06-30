@@ -1,4 +1,4 @@
-package com.vass.challenge.catalog.domain.exceptions;
+package com.vass.challenge.catalog.application.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

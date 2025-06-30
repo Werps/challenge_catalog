@@ -1,6 +1,6 @@
-package com.vass.challenge.catalog.application.mappers;
+package com.vass.challenge.catalog.infrastructure.api.rest.mapper;
 
-import com.vass.challenge.catalog.application.responses.ProductPriceResponse;
+import com.vass.challenge.catalog.infrastructure.api.rest.responses.ProductPriceResponse;
 import com.vass.challenge.catalog.domain.models.ProductPrice;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

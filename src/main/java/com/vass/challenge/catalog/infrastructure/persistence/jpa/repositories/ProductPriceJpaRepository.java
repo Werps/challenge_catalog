@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
-public interface ProductPriceRepository extends JpaRepository<ProductPriceEntity, Long> {
+public interface ProductPriceJpaRepository extends JpaRepository<ProductPriceEntity, Long> {
 
     @Query("SELECT pce FROM ProductPriceEntity pce " +
             "WHERE pce.brandId = :brandId " +

@@ -1,4 +1,4 @@
-package com.vass.challenge.catalog.application.responses;
+package com.vass.challenge.catalog.infrastructure.api.rest.responses;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

@@ -1,10 +1,10 @@
-package com.vass.challenge.catalog.application.exceptions;
+package com.vass.challenge.catalog.infrastructure.api.rest.exceptions;
 
-import com.vass.challenge.catalog.domain.exceptions.NotFoundException;
+import com.vass.challenge.catalog.application.exceptions.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @Slf4j
@@ -12,11 +12,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class RestResponseExceptionHandler {
 
     @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleNotFoundException(NotFoundException ex){
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorResponse handleNotFoundException(NotFoundException ex){
         log.info("Handling not found exception: {}", ex.getMessage());
-        return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                .body(new ErrorResponse(ex.getCode(), ex.getMessage()));
+        return new ErrorResponse(ex.getCode(), ex.getMessage());
     }
-
 
 }

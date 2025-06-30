@@ -5,7 +5,7 @@ import com.vass.challenge.catalog.domain.models.ProductPrice;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public interface ProductPricePort {
+public interface ProductPriceRepository {
 
     List<ProductPrice> findAllByDate(Long brandId, Long productId, LocalDateTime date);
 

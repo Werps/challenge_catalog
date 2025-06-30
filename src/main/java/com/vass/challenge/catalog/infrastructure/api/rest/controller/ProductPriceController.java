@@ -1,7 +1,7 @@
-package com.vass.challenge.catalog.application.controllers;
+package com.vass.challenge.catalog.infrastructure.api.rest.controller;
 
-import com.vass.challenge.catalog.application.mappers.ProductPriceMapper;
-import com.vass.challenge.catalog.application.responses.ProductPriceResponse;
+import com.vass.challenge.catalog.infrastructure.api.rest.mapper.ProductPriceMapper;
+import com.vass.challenge.catalog.infrastructure.api.rest.responses.ProductPriceResponse;
 import com.vass.challenge.catalog.domain.ports.productPrice.ProductPriceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
