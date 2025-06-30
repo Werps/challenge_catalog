@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ProductPriceJpaRepository extends JpaRepository<ProductPriceEntity, Long> {
@@ -15,9 +15,11 @@ public interface ProductPriceJpaRepository extends JpaRepository<ProductPriceEnt
     @Query("SELECT pce FROM ProductPriceEntity pce " +
             "WHERE pce.brandId = :brandId " +
             "AND pce.productId = :productId " +
-            "AND (:date BETWEEN pce.startDate AND pce.endDate)")
-    List<ProductPriceEntity> findAllByDate(@Param("brandId") Long brandId,
-                                           @Param("productId") Long productId,
-                                           @Param("date") LocalDateTime date);
+            "AND (:date BETWEEN pce.startDate AND pce.endDate)" +
+            "ORDER BY pce.priority DESC " +
+            "LIMIT 1")
+    Optional<ProductPriceEntity> findByDate(@Param("brandId") Long brandId,
+                                            @Param("productId") Long productId,
+                                            @Param("date") LocalDateTime date);
 
 }

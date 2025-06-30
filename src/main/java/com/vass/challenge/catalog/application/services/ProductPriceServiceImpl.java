@@ -9,8 +9,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.Comparator;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -20,10 +18,7 @@ public class ProductPriceServiceImpl implements ProductPriceService {
 
     @Override
     public ProductPrice getProductPriceByDate(Long brandId, Long productId, LocalDateTime date) {
-        List<ProductPrice> productPriceList = productPriceRepository.findAllByDate(brandId, productId, date);
-
-        return productPriceList.stream()
-                .max(Comparator.comparing(ProductPrice::getPriority))
+        return productPriceRepository.findByDate(brandId, productId, date)
                 .orElseThrow(() -> new NotFoundException(ErrorCode.PRODUCT_PRICE_NOT_FOUND, productId, brandId, date));
     }
 

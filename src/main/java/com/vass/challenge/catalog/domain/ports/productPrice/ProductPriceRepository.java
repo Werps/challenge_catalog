@@ -3,10 +3,10 @@ package com.vass.challenge.catalog.domain.ports.productPrice;
 import com.vass.challenge.catalog.domain.models.ProductPrice;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Optional;
 
 public interface ProductPriceRepository {
 
-    List<ProductPrice> findAllByDate(Long brandId, Long productId, LocalDateTime date);
+    Optional<ProductPrice> findByDate(Long brandId, Long productId, LocalDateTime date);
 
 }

@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -19,7 +19,7 @@ public class ProductPriceSQLRepositoryImpl implements ProductPriceRepository {
     private final ProductPriceJpaRepository productPriceJpaRepository;
 
     @Override
-    public List<ProductPrice> findAllByDate(Long brandId, Long productId, LocalDateTime date) {
-        return mapper.toModelList(productPriceJpaRepository.findAllByDate(brandId, productId, date));
+    public Optional<ProductPrice> findByDate(Long brandId, Long productId, LocalDateTime date) {
+        return productPriceJpaRepository.findByDate(brandId, productId, date).map(mapper::toModel);
     }
 }
