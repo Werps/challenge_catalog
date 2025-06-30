@@ -28,7 +28,7 @@ public class ProductPriceControllerTest {
         String expectedPrice1 = "35.50 EUR";
 
         //When
-        String price1 = controller.getProductPrice(BRAND_ID, PRODUCT_ID,date1).getBody().price();
+        String price1 = controller.getProductPrice(BRAND_ID, PRODUCT_ID,date1).getBody().getPrice();
 
         //Then
         assertEquals(price1,expectedPrice1);
@@ -42,7 +42,7 @@ public class ProductPriceControllerTest {
         String expectedPrice2 = "25.45 EUR";
 
         //When
-        String price2 = controller.getProductPrice(BRAND_ID, PRODUCT_ID,date2).getBody().price();
+        String price2 = controller.getProductPrice(BRAND_ID, PRODUCT_ID,date2).getBody().getPrice();
 
         //Then
         assertEquals(price2,expectedPrice2);
@@ -56,7 +56,7 @@ public class ProductPriceControllerTest {
         String expectedPrice3 = "35.50 EUR";
 
         //When
-        String price3 = controller.getProductPrice(BRAND_ID, PRODUCT_ID,date3).getBody().price();
+        String price3 = controller.getProductPrice(BRAND_ID, PRODUCT_ID,date3).getBody().getPrice();
 
 
         //Then
@@ -71,7 +71,7 @@ public class ProductPriceControllerTest {
         String expectedPrice4 = "30.50 EUR";
 
         //When
-        String price4 = controller.getProductPrice(BRAND_ID, PRODUCT_ID,date4).getBody().price();
+        String price4 = controller.getProductPrice(BRAND_ID, PRODUCT_ID,date4).getBody().getPrice();
 
         //Then
         assertEquals(price4,expectedPrice4);
@@ -84,7 +84,7 @@ public class ProductPriceControllerTest {
         String expectedPrice5 = "38.95 EUR";
 
         //When
-        String price5 = controller.getProductPrice(BRAND_ID, PRODUCT_ID,date5).getBody().price();
+        String price5 = controller.getProductPrice(BRAND_ID, PRODUCT_ID,date5).getBody().getPrice();
 
         //Then
         assertEquals(price5,expectedPrice5);

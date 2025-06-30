@@ -5,12 +5,8 @@ import com.vass.challenge.catalog.infrastructure.persistence.jpa.entity.ProductP
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 
-import java.util.List;
-
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface ProductPriceAdapterMapper {
-
-    List<ProductPrice> toModelList(List<ProductPriceEntity> entityList);
 
     ProductPrice toModel(ProductPriceEntity entity);
 

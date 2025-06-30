@@ -9,13 +9,14 @@ info:
 servers:
   - url: http://localhost:8080
 tags:
-  - name: prices
+  - name: product_price
     description: Operations about prices
 paths:
   /prices/{brandId}/{productId}/{date}:
     get:
+      operationId: getProductPrice
       tags:
-        - prices
+        - product_price
       summary: Get the price of a given product and brand in a given date
       parameters:
         - in: path
@@ -45,7 +46,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ProductPrice'
+                $ref: '#/components/schemas/ProductPriceResponse'
         400:
           description: Error in some of the params introduced
         404:
@@ -54,7 +55,7 @@ paths:
           description: Internal server error
 components:
   schemas:
-    ProductPrice:
+    ProductPriceResponse:
       type: object
       properties:
         priceList:

@@ -20,6 +20,7 @@ public class ProductPriceSQLRepositoryImpl implements ProductPriceRepository {
 
     @Override
     public Optional<ProductPrice> findByDate(Long brandId, Long productId, LocalDateTime date) {
-        return productPriceJpaRepository.findByDate(brandId, productId, date).map(mapper::toModel);
+        return productPriceJpaRepository.findByDate(brandId, productId, date)
+                .map(mapper::toModel);
     }
 }
