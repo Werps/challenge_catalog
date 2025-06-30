@@ -6,12 +6,13 @@ import com.vass.challenge.catalog.domain.models.ProductPrice;
 import com.vass.challenge.catalog.domain.ports.productPrice.ProductPriceRepository;
 import com.vass.challenge.catalog.domain.ports.productPrice.ProductPriceService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
 
-
+@Service
 @RequiredArgsConstructor
 public class ProductPriceServiceImpl implements ProductPriceService {
 

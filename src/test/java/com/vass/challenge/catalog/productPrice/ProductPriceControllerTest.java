@@ -16,9 +16,9 @@ public class ProductPriceControllerTest {
     @Autowired
     private ProductPriceController controller;
 
-    private final Long BRAND_ID = 35455L;
+    private final Long BRAND_ID = 1L;
 
-    private final Long PRODUCT_ID = 1L;
+    private final Long PRODUCT_ID = 35455L;
 
     @Test
     void shouldReturnValueCase1(){
