@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface ProductPriceAdapterMapper {
+public interface ProductPriceH2SQLRepositoryMapper {
 
     ProductPrice toModel(ProductPriceEntity entity);
 

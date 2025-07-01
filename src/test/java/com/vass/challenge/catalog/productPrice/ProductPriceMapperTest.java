@@ -1,43 +1,33 @@
 package com.vass.challenge.catalog.productPrice;
 
 import com.vass.challenge.catalog.domain.models.ProductPrice;
-import com.vass.challenge.catalog.domain.ports.productprice.ProductPriceService;
-import com.vass.challenge.catalog.infrastructure.api.rest.controller.ProductPriceController;
 import com.vass.challenge.catalog.infrastructure.api.rest.mapper.ProductPriceMapper;
-import com.vass.challenge.openapi.api.ProductPriceApi;
+import com.vass.challenge.catalog.infrastructure.api.rest.mapper.ProductPriceMapperImpl;
 import com.vass.challenge.openapi.model.ProductPriceResponse;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
-class ProductPriceControllerTest {
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(classes = ProductPriceMapperImpl.class)
+class ProductPriceMapperTest {
 
+
+    @Autowired
     private ProductPriceMapper mapper;
 
-    private ProductPriceService service;
-
-    private ProductPriceApi api;
-
-    @BeforeEach
-    void setUp(){
-        mapper = mock(ProductPriceMapper.class);
-        service = mock(ProductPriceService.class);
-        api = new ProductPriceController(mapper, service);
-    }
-
     @Test
-    void shouldFind(){
+    void shouldMapToResponse(){
         //Given
         Long brandId = 1L;
         Long productId = 35455L;
-        LocalDateTime date = LocalDateTime.now();
         LocalDateTime startDate = LocalDateTime.now().minusDays(1);
         LocalDateTime endDate = LocalDateTime.now().plusDays(2);
         Long priceList = 1L;
@@ -66,14 +56,15 @@ class ProductPriceControllerTest {
                 .price(priceResponse);
 
         //When
-        when(service.getProductPriceByDate(brandId,productId,date)).thenReturn(model);
-        when(mapper.toResponse(model)).thenReturn(expectedResponse);
 
         //Then
-        ProductPriceResponse response = api.getProductPrice(brandId,productId,date).getBody();
-        verify(service).getProductPriceByDate(brandId,productId,date);
-        verify(mapper).toResponse(model);
-        assertEquals(expectedResponse, response);
+        ProductPriceResponse response = mapper.toResponse(model);
+        assertEquals(expectedResponse.getPriceList(), response.getPriceList());
+        assertEquals(expectedResponse.getBrandId(), response.getBrandId());
+        assertEquals(expectedResponse.getStartDate(), response.getStartDate());
+        assertEquals(expectedResponse.getEndDate(), response.getEndDate());
+        assertEquals(expectedResponse.getProductId(), response.getProductId());
+        assertEquals(expectedResponse.getPrice(), response.getPrice());
     }
 
 }

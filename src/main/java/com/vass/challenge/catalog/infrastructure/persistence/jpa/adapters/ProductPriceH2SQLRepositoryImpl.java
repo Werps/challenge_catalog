@@ -2,7 +2,7 @@ package com.vass.challenge.catalog.infrastructure.persistence.jpa.adapters;
 
 import com.vass.challenge.catalog.domain.models.ProductPrice;
 import com.vass.challenge.catalog.domain.ports.productprice.ProductPriceRepository;
-import com.vass.challenge.catalog.infrastructure.persistence.jpa.mappers.ProductPriceAdapterMapper;
+import com.vass.challenge.catalog.infrastructure.persistence.jpa.mappers.ProductPriceH2SQLRepositoryMapper;
 import com.vass.challenge.catalog.infrastructure.persistence.jpa.repositories.ProductPriceJpaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -12,9 +12,9 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class ProductPriceSQLRepositoryImpl implements ProductPriceRepository {
+public class ProductPriceH2SQLRepositoryImpl implements ProductPriceRepository {
 
-    private final ProductPriceAdapterMapper mapper;
+    private final ProductPriceH2SQLRepositoryMapper mapper;
 
     private final ProductPriceJpaRepository productPriceJpaRepository;
 
