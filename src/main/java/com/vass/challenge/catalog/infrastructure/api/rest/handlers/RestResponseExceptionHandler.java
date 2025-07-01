@@ -1,6 +1,7 @@
-package com.vass.challenge.catalog.infrastructure.api.rest.exceptions;
+package com.vass.challenge.catalog.infrastructure.api.rest.handlers;
 
 import com.vass.challenge.catalog.application.exceptions.NotFoundException;
+import com.vass.challenge.openapi.model.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;

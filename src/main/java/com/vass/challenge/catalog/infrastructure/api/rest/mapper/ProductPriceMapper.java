@@ -11,7 +11,7 @@ import org.mapstruct.Named;
 public interface ProductPriceMapper {
 
     @Mapping(source = ".", target = "price", qualifiedByName = "formatPrice")
-    ProductPriceResponse toRecord(ProductPrice model);
+    ProductPriceResponse toResponse(ProductPrice model);
 
     @Named("formatPrice")
     default String formatPrice(ProductPrice productPrice){

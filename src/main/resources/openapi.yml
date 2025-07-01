@@ -51,6 +51,10 @@ paths:
           description: Error in some of the params introduced
         404:
           description: Product price does not exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
         500:
           description: Internal server error
 components:
@@ -81,3 +85,16 @@ components:
         price:
           type: string
           description: Product price with currency
+    ErrorResponse:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+          description: error code
+        message:
+          type: string
+          description: error message
+

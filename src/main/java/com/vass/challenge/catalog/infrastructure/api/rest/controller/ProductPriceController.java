@@ -23,7 +23,7 @@ public class ProductPriceController implements ProductPriceApi {
     public ResponseEntity<ProductPriceResponse> getProductPrice(@PathVariable(name = "brandId") Long brandId,
                                                                 @PathVariable(name = "productId") Long productId,
                                                                 @PathVariable(name = "date") LocalDateTime date){
-        return ResponseEntity.ok(productPriceMapper.toRecord(
+        return ResponseEntity.ok(productPriceMapper.toResponse(
                 productPriceService.getProductPriceByDate(brandId,productId,date)));
     }
 
