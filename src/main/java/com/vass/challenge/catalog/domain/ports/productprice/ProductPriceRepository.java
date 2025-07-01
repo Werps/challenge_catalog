@@ -1,4 +1,4 @@
-package com.vass.challenge.catalog.domain.ports.productPrice;
+package com.vass.challenge.catalog.domain.ports.productprice;
 
 import com.vass.challenge.catalog.domain.models.ProductPrice;
 

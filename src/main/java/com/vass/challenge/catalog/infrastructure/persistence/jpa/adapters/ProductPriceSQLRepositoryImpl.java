@@ -1,7 +1,7 @@
 package com.vass.challenge.catalog.infrastructure.persistence.jpa.adapters;
 
 import com.vass.challenge.catalog.domain.models.ProductPrice;
-import com.vass.challenge.catalog.domain.ports.productPrice.ProductPriceRepository;
+import com.vass.challenge.catalog.domain.ports.productprice.ProductPriceRepository;
 import com.vass.challenge.catalog.infrastructure.persistence.jpa.mappers.ProductPriceAdapterMapper;
 import com.vass.challenge.catalog.infrastructure.persistence.jpa.repositories.ProductPriceJpaRepository;
 import lombok.RequiredArgsConstructor;

@@ -11,14 +11,14 @@ import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-public class ProductPriceControllerTest {
+class ProductPriceControllerTest {
 
     @Autowired
     private ProductPriceController controller;
 
-    private final Long BRAND_ID = 1L;
+    private final Long brandId = 1L;
 
-    private final Long PRODUCT_ID = 35455L;
+    private final Long productId = 35455L;
 
     @Test
     void shouldReturnValueCase1(){
@@ -28,7 +28,7 @@ public class ProductPriceControllerTest {
         String expectedPrice1 = "35.50 EUR";
 
         //When
-        String price1 = controller.getProductPrice(BRAND_ID, PRODUCT_ID,date1).getBody().getPrice();
+        String price1 = controller.getProductPrice(brandId, productId,date1).getBody().getPrice();
 
         //Then
         assertEquals(price1,expectedPrice1);
@@ -42,7 +42,7 @@ public class ProductPriceControllerTest {
         String expectedPrice2 = "25.45 EUR";
 
         //When
-        String price2 = controller.getProductPrice(BRAND_ID, PRODUCT_ID,date2).getBody().getPrice();
+        String price2 = controller.getProductPrice(brandId, productId,date2).getBody().getPrice();
 
         //Then
         assertEquals(price2,expectedPrice2);
@@ -56,7 +56,7 @@ public class ProductPriceControllerTest {
         String expectedPrice3 = "35.50 EUR";
 
         //When
-        String price3 = controller.getProductPrice(BRAND_ID, PRODUCT_ID,date3).getBody().getPrice();
+        String price3 = controller.getProductPrice(brandId, productId,date3).getBody().getPrice();
 
 
         //Then
@@ -71,7 +71,7 @@ public class ProductPriceControllerTest {
         String expectedPrice4 = "30.50 EUR";
 
         //When
-        String price4 = controller.getProductPrice(BRAND_ID, PRODUCT_ID,date4).getBody().getPrice();
+        String price4 = controller.getProductPrice(brandId, productId,date4).getBody().getPrice();
 
         //Then
         assertEquals(price4,expectedPrice4);
@@ -84,7 +84,7 @@ public class ProductPriceControllerTest {
         String expectedPrice5 = "38.95 EUR";
 
         //When
-        String price5 = controller.getProductPrice(BRAND_ID, PRODUCT_ID,date5).getBody().getPrice();
+        String price5 = controller.getProductPrice(brandId, productId,date5).getBody().getPrice();
 
         //Then
         assertEquals(price5,expectedPrice5);

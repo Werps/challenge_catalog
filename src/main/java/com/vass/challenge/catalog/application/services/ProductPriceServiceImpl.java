@@ -3,8 +3,8 @@ package com.vass.challenge.catalog.application.services;
 import com.vass.challenge.catalog.application.exceptions.ErrorCode;
 import com.vass.challenge.catalog.application.exceptions.NotFoundException;
 import com.vass.challenge.catalog.domain.models.ProductPrice;
-import com.vass.challenge.catalog.domain.ports.productPrice.ProductPriceRepository;
-import com.vass.challenge.catalog.domain.ports.productPrice.ProductPriceService;
+import com.vass.challenge.catalog.domain.ports.productprice.ProductPriceRepository;
+import com.vass.challenge.catalog.domain.ports.productprice.ProductPriceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
